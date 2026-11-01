@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị Hệ Thống - Lẩu Mắm Trăm Rưỡi</title>
+    <link rel="stylesheet" href="../components/admin.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Thanh điều hướng Sidebar cố định bên trái -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-brand">🍲 LẨU MẮM 150K</div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-tab="tab-orders">
+                    📋 Quản Lý Đơn Hàng
+                </li>
+                <li class="nav-item" data-tab="tab-content">
+                    🖼️ Banner & Thực Đơn
+                </li>
+                <li class="nav-item" data-tab="tab-branches">
+                    🏪 Chi Nhánh & Đánh Giá
+                </li>
+                <li class="nav-item" data-tab="tab-feedbacks">
+                    💬 Góp Ý & Xuất Excel
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Khu vực hiển thị nội dung chính -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h2 id="currentTabTitle" style="font-size: 18px; font-weight: 700;">Quản Lý Đơn Hàng (Đặt Bàn & Mang Về)</h2>
+                <div>
+                    <span style="font-size: 13px; color: #666; margin-right: 15px;">Xin chào, <strong>Quản trị viên</strong></span>
+                    <button id="logoutBtn" class="btn-sm btn-secondary">Đăng Xuất</button>
+                </div>
+            </header>
+
+            <section class="admin-content">
+                <!-- TAB 1: QUẢN LÝ ĐƠN HÀNG -->
+                <div id="tab-orders" class="tab-pane active">
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 style="font-size: 15px;">Danh Sách Tiếp Nhận Đơn Mới (Thời Gian Thực)</h3>
+                            <button id="refreshOrdersBtn" class="btn-sm btn-secondary">🔄 Tải lại</button>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Thời Gian</th>
+                                    <th>Loại Đơn</th>
+                                    <th>Chi Nhánh</th>
+                                    <th>Tên Khách Hàng</th>
+                                    <th>Số Điện Thoại</th>
+                                    <th>Chi Tiết (Khách / Địa Chỉ)</th>
+                                    <th>Thao Tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <tr><td colspan="7" style="text-align:center;">Đang tải danh sách đơn...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- TAB 2: BANNER & THỰC ĐƠN -->
+                <div id="tab-content" class="tab-pane">
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 style="font-size: 15px;">Cài Đặt Hero Banner Trang Chủ (Tối Đa 3 Ảnh)</h3>
+                        </div>
+                        <div id="heroBannersContainer">Đang tải cấu hình banner...</div>
+                    </div>
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 style="font-size: 15px;">Cài Đặt Hình Ảnh Thực Đơn (Tối Đa 2 Ảnh)</h3>
+                        </div>
+                        <div id="menuImagesContainer">Đang tải cấu hình thực đơn...</div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: CHI NHÁNH & ĐÁNH GIÁ ẢO -->
+                <div id="tab-branches" class="tab-pane">
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 style="font-size: 15px;">Danh Sách Chi Nhánh Hệ Thống</h3>
+                            <button id="addBranchBtn" class="btn-sm btn-success">+ Thêm Chi Nhánh Mới</button>
+                        </div>
+                        <div id="branchesListContainer">Đang tải danh sách chi nhánh...</div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: GÓP Ý & XUẤT EXCEL -->
+                <div id="tab-feedbacks" class="tab-pane">
+                    <div class="data-card">
+                        <div class="card-header">
+                            <h3 style="font-size: 15px;">Hòm Thư Góp Ý Từ Khách Hàng (Tự Xóa Sau 7 Ngày)</h3>
+                            <div style="display:flex; gap:10px;">
+                                <select id="feedbackBranchFilter" class="form-input" style="width: auto; padding: 4px 10px;">
+                                    <option value="">Tất cả chi nhánh</option>
+                                </select>
+                                <button id="exportExcelBtn" class="btn-sm btn-success">📥 Xuất File Excel / CSV</button>
+                            </div>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Thời Gian Gửi</th>
+                                    <th>Chi Nhánh</th>
+                                    <th>Nội Dung Góp Ý Của Khách</th>
+                                </tr>
+                            </thead>
+                            <tbody id="feedbacksTableBody">
+                                <tr><td colspan="3" style="text-align:center;">Đang tải danh sách góp ý...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script điều hướng Tab & Kiểm tra quyền đăng nhập -->
+    <script>
+        // 1. Kiểm tra xác thực token khi tải trang Dashboard
+        const token = localStorage.getItem('admin_token');
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        // 2. Xử lý nút Đăng xuất
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('admin_token');
+            window.location.href = 'login.html';
+        });
+
+        // 3. Cơ chế chuyển đổi giữa 4 Tabs chức năng
+        const tabTitles = {
+            'tab-orders': 'Quản Lý Đơn Hàng (Đặt Bàn & Mang Về)',
+            'tab-content': 'Quản Lý Nội Dung, Hero Banner & Thực Đơn',
+            'tab-branches': 'Quản Lý Danh Sách Chi Nhánh & Đánh Giá Ảo',
+            'tab-feedbacks': 'Quản Lý Góp Ý Khách Hàng & Xuất Báo Cáo'
+        };
+
+        const navItems = document.querySelectorAll('.nav-item');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        const titleEl = document.getElementById('currentTabTitle');
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(i => i.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+
+                item.classList.add('active');
+                const targetTab = item.getAttribute('data-tab');
+                document.getElementById(targetTab).classList.add('active');
+                titleEl.textContent = tabTitles[targetTab] || 'Quản Trị';
+            });
+        });
+    </script>
+    <!-- Nhúng script điều khiển phân hệ Đơn hàng -->
+    <script src="../components/orders.js"></script>
+    <!-- Nhúng script điều khiển phân hệ Góp ý & Xuất Excel -->
+    <script src="../utils/exportExcel.js"></script>
+    <script src="../components/feedbacks.js"></script>
+    <!-- Nhúng script nén ảnh WebP & Quản lý Banner/Menu -->
+    <script src="../utils/imageCompressor.js"></script>
+    <script src="../components/settings.js"></script>
+    <!-- Nhúng script điều khiển phân hệ Chi nhánh & Đánh giá ảo -->
+    <script src="../components/branches.js"></script>
+</body>
+</html>
+
