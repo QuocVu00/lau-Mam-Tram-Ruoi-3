@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập Quản trị - Lẩu Mắm Trăm Rưỡi</title>
+    <!-- Nhúng file CSS giao diện của Admin CMS -->
+    <link rel="stylesheet" href="../components/admin.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h1 class="login-title">HỆ THỐNG QUẢN TRỊ</h1>
+            <p class="login-subtitle">Nhà Hàng Lẩu Mắm Trăm Rưỡi</p>
+
+            <!-- Hộp hiển thị thông báo lỗi hoặc thành công -->
+            <div id="alertBox" class="alert-box"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Tên đăng nhập</label>
+                    <input type="text" id="username" class="form-input" required autocomplete="username" placeholder="Nhập tài khoản admin">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" class="form-input" required autocomplete="current-password" placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" id="submitBtn" class="btn-primary">Đăng Nhập Ngay</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Lắng nghe sự kiện submit của form đăng nhập
+        const form = document.getElementById('loginForm');
+        const alertBox = document.getElementById('alertBox');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Ngăn trình duyệt tải lại trang khi bấm submit
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            try {
+                // Gửi request xác thực lên API phía máy chủ
+                const response = await fetch('/api/admin/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Lưu mã token vào bộ nhớ trình duyệt để dùng cho các request tiếp theo
+                    localStorage.setItem('admin_token', data.token);
+                    alertBox.className = 'alert-box alert-success';
+                    alertBox.textContent = 'Đăng nhập thành công! Đang chuyển hướng...';
+                    alertBox.style.display = 'block';
+
+                    // Chuyển hướng sang trang Dashboard quản trị
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 800);
+                } else {
+                    alertBox.className = 'alert-box alert-error';
+                    alertBox.textContent = data.message || 'Sai thông tin đăng nhập!';
+                    alertBox.style.display = 'block';
+                }
+            } catch (err) {
+                alertBox.className = 'alert-box alert-error';
+                alertBox.textContent = 'Không thể kết nối tới máy chủ!';
+                alertBox.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
+
