@@ -1,0 +1,17 @@
+# Thư mục phụ thuộc thư viện
+node_modules/
+
+# Tập tin chứa bí mật môi trường (không đẩy lên Git)
+.env
+.env.local
+
+# Thư mục upload ảnh (chỉ giữ file .gitkeep để giữ thư mục)
+public/uploads/*
+!public/uploads/.gitkeep
+
+# File tạm hệ điều hành và IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
