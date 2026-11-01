@@ -1,0 +1,200 @@
+/* ====================================================================
+   FILE ĐỊNH KIỂU KHỐI ĐÁNH GIÁ NỔI BẬT & CHÂN TRANG FOOTER
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Xây dựng Đánh giá uy tín & Chân trang cố định
+   ==================================================================== */
+
+/* --------------------------------------------------------------------
+   1. KHỐI ĐÁNH GIÁ NỔI BẬT (REVIEWS SECTION - TỐI ĐA 3 REVIEW)
+   -------------------------------------------------------------------- */
+.reviews-section {
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+
+/* Lưới hiển thị 3 thẻ đánh giá */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mặc định 1 cột trên Mobile */
+    gap: 24px;
+}
+
+/* Từng thẻ đánh giá của khách */
+.review-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    padding: 26px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Hàng 5 ngôi sao vàng */
+.review-stars {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+/* Lời nhận xét của khách (in nghiêng tạo cảm giác chân thật) */
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-main);
+    font-style: italic;
+    margin-bottom: 22px;
+    flex: 1; /* Tự co giãn để chân tác giả luôn thẳng hàng */
+}
+
+/* Khối thông tin tác giả đánh giá */
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #F3F4F6;
+}
+
+/* Avatar chữ cái đại diện (ví dụ: ML = Mai Lan) */
+.author-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.author-name {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 2px;
+}
+
+.author-tag {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------
+   2. CHÂN TRANG THƯƠNG HIỆU (SITE FOOTER)
+   -------------------------------------------------------------------- */
+.site-footer {
+    background-color: #241A14; /* Tông màu nâu gỗ sẫm cổ kính, ấm cúng */
+    color: #FAF7F2;
+    padding: 60px 20px 40px;
+    margin-top: 50px;
+    border-top: 3px solid var(--color-accent);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; /* 1 Cột trên Mobile */
+    gap: 36px;
+}
+
+/* Cột thông tin thương hiệu */
+.footer-brand-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text-light);
+    margin-bottom: 14px;
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.65;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+/* Tiêu đề từng cột trong Footer */
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+/* Danh sách thông tin liên hệ và link nhanh */
+.footer-list, .footer-links {
+    list-style: none;
+}
+
+.footer-list li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    opacity: 0.85;
+}
+
+.footer-list a {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    transition: all var(--transition-fast);
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--color-accent);
+    padding-left: 6px; /* Nhích nhẹ sang phải khi rê chuột */
+}
+
+/* ====================================================================
+   RESPONSIVE CHO TABLET VÀ PC
+   ==================================================================== */
+
+/* Tablet & PC (>= 768px): Reviews chia 3 cột, Footer chia 3 cột */
+@media (min-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 đánh giá thẳng hàng */
+    }
+
+    .footer-container {
+        grid-template-columns: 2fr 1.5fr 1fr; /* Tỉ lệ chia cột hài hòa */
+        gap: 40px;
+    }
+}
+

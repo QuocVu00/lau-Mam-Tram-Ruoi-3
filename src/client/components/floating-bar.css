@@ -1,0 +1,190 @@
+/* ====================================================================
+   FILE ĐỊNH KIỂU FLOATING SOCIAL ICONS & STICKY BOTTOM BAR
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Xây dựng 2 thành phần cố định xuyên suốt
+   ==================================================================== */
+
+/* --------------------------------------------------------------------
+   1. ĐỊNH KIỂU 3 NÚT NỔI MẠNG XÃ HỘI (FLOATING SOCIAL ICONS)
+   -------------------------------------------------------------------- */
+
+/* Cụm chứa 3 icon ghim cố định ở góc dưới bên phải màn hình */
+.floating-social-group {
+    position: fixed;
+    right: 18px;
+    /* Nằm cao hơn đáy 85px để không bị thanh Bottom Bar che khuất */
+    bottom: 85px;
+    z-index: 95; /* Luôn nổi trên nội dung trang web */
+    display: flex;
+    flex-direction: column; /* Xếp dọc 3 nút từ trên xuống */
+    gap: 12px;
+}
+
+/* Kiểu dáng chung của từng nút mạng xã hội (hình tròn) */
+.social-icon-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    /* Áp dụng hiệu ứng nhịp thở nhẹ nhàng để thu hút ánh nhìn */
+    animation: pulseFloating 3s infinite ease-in-out;
+}
+
+/* Hiệu ứng phóng to nhẹ khi người dùng di chuột tới */
+.social-icon-btn:hover {
+    transform: scale(1.12);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Nút TikTok - Màu đen huyền bí */
+.social-icon-btn.tiktok {
+    background-color: #010101;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Nút Zalo - Màu xanh thương hiệu Zalo */
+.social-icon-btn.zalo {
+    background-color: #0068FF;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: -0.5px;
+}
+
+/* Nút Facebook - Màu xanh thương hiệu Meta/Facebook */
+.social-icon-btn.facebook {
+    background-color: #1877F2;
+}
+
+/* Hiệu ứng chuyển động nhịp thở nhẹ (Pulse animation) */
+@keyframes pulseFloating {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px); /* Nhấc nhẹ lên 4px */
+    }
+}
+
+/* --------------------------------------------------------------------
+   2. ĐỊNH KIỂU THANH CÔNG CỤ GHIM ĐÁY (STICKY BOTTOM BAR)
+   -------------------------------------------------------------------- */
+
+/* Khung bám dính ở sát đáy màn hình */
+.sticky-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99; /* Nằm ngay dưới các Modal nhưng trên toàn bộ trang */
+    background: #FFFFFF;
+    border-top: 1px solid rgba(139, 58, 28, 0.15);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px 12px;
+}
+
+/* Kiểu dáng từng nút bấm trên thanh công cụ */
+.bottom-action-btn {
+    flex: 1; /* Chia đều độ rộng cho cả 3 nút */
+    display: flex;
+    flex-direction: column; /* Icon ở trên, Chữ ở dưới */
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 8px 4px;
+    margin: 0 4px;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-family: inherit;
+    transition: all var(--transition-fast);
+}
+
+/* Kích thước biểu tượng cảm xúc (Icon) */
+.bottom-action-btn .btn-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+/* Kiểu chữ nhãn hành động */
+.bottom-action-btn .btn-label {
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+/* Nút 1: Đặt Bàn - Nút quan trọng nhất, dùng màu đỏ gạch nổi bật */
+.btn-booking {
+    background-color: var(--color-btn-cta);
+    color: var(--text-light);
+}
+
+.btn-booking:hover {
+    background-color: #B71C1C;
+    transform: translateY(-2px);
+}
+
+/* Nút 2: Mua Mang Về - Dùng màu vàng cam đất ấm áp */
+.btn-takeaway {
+    background-color: var(--color-accent);
+    color: var(--text-light);
+}
+
+.btn-takeaway:hover {
+    background-color: #D35400;
+    transform: translateY(-2px);
+}
+
+/* Nút 3: Khách Đánh Giá - Dùng nền nhẹ nhàng thanh lịch */
+.btn-feedback {
+    background-color: #F3F4F6;
+    color: var(--text-main);
+    border: 1px solid #E5E7EB;
+}
+
+.btn-feedback:hover {
+    background-color: #E5E7EB;
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* Hiệu ứng khi bấm ngón tay (Active) */
+.bottom-action-btn:active {
+    transform: scale(0.96);
+}
+
+/* ====================================================================
+   RESPONSIVE CHO MÁY TÍNH BẢNG (TABLET) VÀ LAPTOP / PC
+   ==================================================================== */
+
+/* Khi màn hình lớn hơn điện thoại (>= 768px):
+   Biến thanh đáy thành dạng Dock nổi bo tròn đẹp mắt ở chính giữa đáy màn hình */
+@media (min-width: 768px) {
+    .sticky-bottom-bar {
+        left: 50%;
+        transform: translateX(-50%); /* Căn giữa màn hình */
+        width: auto;
+        min-width: 520px;
+        bottom: 16px; /* Cách mép đáy 16px tạo cảm giác nổi */
+        border-radius: var(--radius-full);
+        padding: 8px 18px;
+        border: 1px solid rgba(139, 58, 28, 0.2);
+    }
+
+    .bottom-action-btn {
+        flex-direction: row; /* Trên màn hình to: Icon và Chữ nằm ngang cùng 1 hàng */
+        gap: 8px;
+        padding: 10px 18px;
+    }
+
+    .bottom-action-btn .btn-label {
+        font-size: 0.9rem;
+    }
+}
+

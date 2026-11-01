@@ -1,0 +1,77 @@
+/* ====================================================================
+   HIỆU ỨNG PHÓNG TO ẢNH THỰC ĐƠN TOÀN MÀN HÌNH (LIGHTBOX MODAL)
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Lightbox phóng to xem rõ giá món trên điện thoại
+   ==================================================================== */
+
+/* Khung nền tối bao phủ toàn màn hình */
+.lightbox-modal {
+    position: fixed;
+    inset: 0; /* top: 0, right: 0, bottom: 0, left: 0 */
+    z-index: 1000; /* Nằm trên toàn bộ giao diện */
+    background: rgba(0, 0, 0, 0.9); /* Nền đen trong suốt 90% */
+    backdrop-filter: blur(6px); /* Làm mờ nội dung trang web phía sau */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none; /* Khi chưa bật thì không cản trở click */
+    transition: opacity var(--transition-fast);
+}
+
+/* Khi có class .active -> Hiện modal rõ nét */
+.lightbox-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Khung chứa ảnh thực đơn */
+.lightbox-content {
+    max-width: 95vw;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ảnh thực đơn phóng to */
+.lightbox-img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain; /* Đảm bảo thấy trọn vẹn toàn bộ ảnh mà không bị méo */
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: scale(0.92); /* Thu nhỏ nhẹ ban đầu */
+    transition: transform var(--transition-fast);
+}
+
+/* Khi mở: Ảnh bung to mượt mà ra tỉ lệ chuẩn 1.0 */
+.lightbox-modal.active .lightbox-img {
+    transform: scale(1);
+}
+
+/* Nút bấm hình dấu X đóng Lightbox (To rõ, dễ chạm bằng ngón tay cái) */
+.lightbox-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background var(--transition-fast);
+}
+
+.lightbox-close-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+

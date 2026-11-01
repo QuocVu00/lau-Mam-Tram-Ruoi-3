@@ -1,0 +1,83 @@
+/* ====================================================================
+   BỘ SƯU TẬP HIỆU ỨNG KHI LƯỚT TRANG (ADVANCED SCROLL REVEAL & STAGGER)
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Hiệu ứng chuyển động mượt mà khi người dùng cuộn chuột
+   ==================================================================== */
+
+/* 1. HIỆU ỨNG CƠ BẢN: TRƯỢT TỪ DƯỚI LÊN (FADE-IN UP) */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. HIỆU ỨNG LƯỚT TỪ BÊN TRÁI SANG (SLIDE FROM LEFT) */
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 3. HIỆU ỨNG LƯỚT TỪ BÊN PHẢI SANG (SLIDE FROM RIGHT) */
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 4. HIỆU ỨNG NỞ RỘNG TỪ TÂM (SCALE-IN ZOOM) */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+.reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* 5. HIỆU ỨNG LƯỚT SO LE NỐI ĐUÔI NHAU (STAGGER DELAY)
+   Khi lướt tới một hàng thẻ, thẻ 1 hiện trước, thẻ 2 hiện sau 0.15s, thẻ 3 sau 0.3s */
+.stagger-1 {
+    transition-delay: 0.1s;
+}
+
+.stagger-2 {
+    transition-delay: 0.25s;
+}
+
+.stagger-3 {
+    transition-delay: 0.4s;
+}
+
+/* 6. HIỆU ỨNG HEADER THU GỌN KHI LƯỚI TRANG XUỐNG DƯỚI */
+.site-header.header-scrolled {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.98);
+}

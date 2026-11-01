@@ -1,0 +1,255 @@
+/* ====================================================================
+   FILE ĐỊNH KIỂU KHU VỰC THỰC ĐƠN & DANH SÁCH CHI NHÁNH
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Hiệu ứng Hover Zoom & Lưới Responsive 3 khung hình
+   ==================================================================== */
+
+/* --------------------------------------------------------------------
+   1. KHU VỰC THỰC ĐƠN (MENU SECTION - 2 ẢNH)
+   -------------------------------------------------------------------- */
+.menu-section {
+    background-color: #FAF4EB; /* Nền kem nhẹ phân biệt với các phần khác */
+    border-radius: var(--radius-md);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: -6px;
+    margin-bottom: 14px;
+}
+
+/* Lưới hiển thị 2 ảnh thực đơn: mặc định 1 cột trên mobile */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+/* Thẻ bao bọc từng ảnh thực đơn */
+.menu-item-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer; /* Biểu tượng bàn tay báo hiệu có thể click phóng to */
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.menu-item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Khung chứa ảnh thực đơn */
+.menu-img-box {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-color: #E5E7EB;
+}
+
+.menu-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* Hiệu ứng phóng to nhẹ ảnh thực đơn khi rê chuột */
+.menu-item-card:hover .menu-img {
+    transform: scale(1.04);
+}
+
+/* Lớp phủ gợi ý phóng to (Zoom Hint Overlay) */
+.zoom-hint-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    opacity: 0; /* Mặc định ẩn, rê chuột vào mới hiện */
+    transition: opacity var(--transition-fast);
+}
+
+.zoom-hint-overlay .zoom-icon {
+    font-size: 1.3rem;
+}
+
+.menu-item-card:hover .zoom-hint-overlay {
+    opacity: 1;
+}
+
+/* Phần thông tin chữ bên dưới ảnh */
+.menu-card-info {
+    padding: 18px 20px;
+}
+
+.menu-card-title {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 6px;
+}
+
+.menu-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------
+   2. DANH SÁCH CHI NHÁNH (BRANCH GRID & HOVER ZOOM 1.05x)
+   -------------------------------------------------------------------- */
+.branch-section {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+/* LƯỚI RESPONSIVE 3 KHUNG HÌNH THEO ĐẶC TẢ SRS:
+   1. Mặc định trên Mobile (< 768px): 1 Cột dọc */
+.branch-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+/* Thẻ từng chi nhánh */
+.branch-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Nhấc nhẹ thẻ khi hover */
+.branch-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Khung chứa ảnh đại diện chi nhánh */
+.branch-thumb-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden; /* Cực kỳ quan trọng để ảnh khi phóng to 1.05x không bị tràn ra ngoài viền */
+}
+
+.branch-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Hiệu ứng chuyển động mượt mà cho thuộc tính transform */
+    transition: transform 0.4s ease;
+}
+
+/* 👉 HIỆU ỨNG HOVER ZOOM 1.05x THEO YÊU CẦU SRS 👈 */
+.branch-card:hover .branch-thumb-img {
+    transform: scale(1.05); /* Phóng to nhẹ 5% */
+}
+
+/* Huy hiệu 'Đang Mở Cửa' góc trên ảnh */
+.branch-status-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: rgba(46, 125, 50, 0.9); /* Màu xanh lá rau đồng */
+    color: var(--text-light);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(4px);
+}
+
+/* Khung chứa thông tin chi tiết chi nhánh */
+.branch-details {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Đẩy phần nút bấm luôn bám sát đáy thẻ */
+}
+
+.branch-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    line-height: 1.35;
+}
+
+.branch-name a:hover {
+    color: var(--color-accent);
+}
+
+.branch-info-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    line-height: 1.45;
+}
+
+.info-icon {
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+/* Nút bấm xem trang chi tiết chi nhánh */
+.branch-actions {
+    margin-top: auto; /* Tự động đẩy xuống đáy */
+    padding-top: 14px;
+    border-top: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.btn-branch-detail {
+    display: inline-block;
+    color: var(--color-accent);
+    font-weight: 700;
+    font-size: 0.92rem;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.btn-branch-detail:hover {
+    color: var(--color-primary);
+    transform: translateX(4px); /* Nhích nhẹ sang phải khi rê chuột */
+}
+
+/* ====================================================================
+   RESPONSIVE THEO ĐẶC TẢ SRS:
+   2. Máy tính bảng (Tablet 768px - 1024px): Lưới 2 cột cân đối
+   3. Laptop / PC (> 1024px): Lưới 3 cột rộng rãi
+   ==================================================================== */
+
+/* Tablet (768px đến 1024px) */
+@media (min-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr); /* Menu 2 cột */
+    }
+
+    .branch-grid {
+        grid-template-columns: repeat(2, 1fr); /* Chi nhánh 2 cột */
+    }
+}
+
+/* Laptop / PC (> 1024px) */
+@media (min-width: 1025px) {
+    .branch-grid {
+        grid-template-columns: repeat(3, 1fr); /* Chi nhánh 3 cột rộng rãi */
+    }
+}
+

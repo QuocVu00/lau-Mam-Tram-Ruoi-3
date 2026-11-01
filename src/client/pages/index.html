@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- Thiết lập bảng mã ký tự tiếng Việt UTF-8 để không bị lỗi font chữ -->
+    <meta charset="UTF-8">
+
+    <!-- Viewport cực kỳ quan trọng cho Responsive: 
+         - width=device-width: độ rộng trang bằng đúng chiều rộng màn hình thiết bị (Mobile/Tablet/PC)
+         - initial-scale=1.0: mức độ phóng to ban đầu là 100% -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lẩu Mắm Trăm Rưỡi - Đậm Đà Hương Vị Miền Tây</title>
+
+    <!-- Nạp Font chữ tiếng Việt hiện đại Google Fonts (Be Vietnam Pro) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Nạp file định kiểu CSS tổng quan và giao diện cố định -->
+    <link rel="stylesheet" href="../components/global.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/floating-bar.css">
+    <link rel="stylesheet" href="../components/home-sections.css">
+    <link rel="stylesheet" href="../components/menu-branches.css">
+    <link rel="stylesheet" href="../components/reviews-footer.css">
+    <link rel="stylesheet" href="../components/modals.css">
+    <link rel="stylesheet" href="../animations/scroll-reveal.css">
+    <link rel="stylesheet" href="../animations/lightbox.css">
+</head>
+<body>
+    <!-- Khu vực 1: Header (Đầu trang - Hiển thị xuyên suốt) -->
+    <header id="site-header" class="site-header">
+        <div class="header-container">
+            <!-- Logo thương hiệu -->
+            <a href="index.html" class="brand-logo">
+                <span class="logo-text-accent">LẨU MẮM</span> TRĂM RƯỠI
+            </a>
+
+            <!-- Thanh điều hướng cuộn nhanh tới các khu vực trên trang -->
+            <nav class="nav-menu">
+                <a href="#intro" class="nav-link">Giới Thiệu</a>
+                <a href="#menu" class="nav-link">Thực Đơn</a>
+                <a href="#branches" class="nav-link">Chi Nhánh</a>
+                <a href="#reviews" class="nav-link">Đánh Giá</a>
+            </nav>
+
+            <!-- Hotline liên hệ nhanh trên Header (tiện ích cho khách gọi ngay) -->
+            <a href="tel:19001234" class="header-hotline">
+                📞 Hotline: <strong>1900 1234</strong>
+            </a>
+        </div>
+    </header>
+
+    <!-- Khu vực nội dung chính của Trang Chủ -->
+    <main id="main-content">
+        <!-- -------------------------------------------------------------
+             PHẦN 1: HERO BANNER SLIDER (Tối đa 3 banner do Admin quản lý)
+             ------------------------------------------------------------- -->
+        <section class="hero-slider-section" aria-label="Hình ảnh nổi bật">
+            <div class="slider-wrapper" id="hero-slider">
+                <!-- Slide 1 -->
+                <div class="slider-slide active" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;">
+                    <div class="slide-caption">
+                        <span class="caption-tag">Đặc Sản Sông Nước</span>
+                        <h1 class="caption-title">Lẩu Mắm Đậm Đà - Chuẩn Vị Nam Bộ</h1>
+                        <p class="caption-desc">Hương vị mắm cá linh, cá sặc gia truyền hòa quyện cùng hơn 10 loại rau đồng tươi giòn.</p>
+                        <a href="#menu" class="btn-primary-slide">Khám Phá Thực Đơn</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slider-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;">
+                    <div class="slide-caption">
+                        <span class="caption-tag">Giá Chỉ 150K / Nồi</span>
+                        <h2 class="caption-title">Set Lẩu Trăm Rưỡi - No Say Quên Lối Về</h2>
+                        <p class="caption-desc">Thịt ba chỉ quay giòn bì, tôm sú tươi sống, cá hú béo ngậy kèm bún tươi ăn thả ga.</p>
+                        <button type="button" class="btn-primary-slide" onclick="document.getElementById('btn-open-booking').click()">Đặt Bàn Ngay</button>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slider-slide" style="background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;">
+                    <div class="slide-caption">
+                        <span class="caption-tag">Không Gian Ấm Cúng</span>
+                        <h2 class="caption-title">Nơi Gắn Kết Tình Thân & Bạn Bè</h2>
+                        <p class="caption-desc">Hệ thống bàn ghế gỗ mộc mạc, không gian thoáng đãng phù hợp cho mọi buổi tiệc sum vầy.</p>
+                        <a href="#branches" class="btn-primary-slide">Tìm Chi Nhánh Gần Bạn</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nút bấm chuyển ảnh Trước/Sau (Prev/Next) -->
+            <button type="button" class="slider-nav-btn prev" id="slider-btn-prev" aria-label="Ảnh trước">&#10094;</button>
+            <button type="button" class="slider-nav-btn next" id="slider-btn-next" aria-label="Ảnh sau">&#10095;</button>
+
+            <!-- 3 Chấm tròn chỉ số Slide (Dots Indicator) -->
+            <div class="slider-dots" id="slider-dots-group">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
+
+            <!-- Vạch chạy tiến trình thời gian tự động đổi ảnh -->
+            <div class="slider-progress-bar">
+                <div class="progress-fill" id="slider-progress"></div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             PHẦN 2: KHỐI GIỚI THIỆU (INTRO SECTION & SCROLL REVEAL)
+             ------------------------------------------------------------- -->
+        <section id="intro" class="section-container intro-section">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Câu Chuyện Thương Hiệu</span>
+                <h2 class="section-title">Hương Vị Mộc Mạc Của Đất Phương Nam</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <div class="intro-grid">
+                <!-- Cột trái: Lướt nhẹ từ bên trái sang -->
+                <div class="intro-text-col reveal-left">
+                    <h3>Tinh Túy Từ Nồi Nước Lẩu Gia Truyền</h3>
+                    <p>
+                        Ra đời từ niềm đam mê ẩm thực miền Tây chân chất, <strong>Lẩu Mắm Trăm Rưỡi</strong> 
+                        mang đến cho thực khách trải nghiệm trọn vẹn nhất của hương vị Nam Bộ. Nước lẩu được 
+                        nấu từ mắm cá linh và cá sặc Châu Đốc ủ chín kỹ, lọc kỹ lưỡng để có vị ngọt thanh, 
+                        thơm nồng nàn mà không hề gắt.
+                    </p>
+                    <p>
+                        Đúng với tên gọi "Trăm Rưỡi", chúng tôi luôn cam kết mức giá bình dân nhất để mọi 
+                        gia đình, nhóm bạn đều có thể quây quần bên nồi lẩu nghi ngút khói, thưởng thức đĩa rau 
+                        đồng ngập tràn bông điên điển, bông so đũa và rau đắng tươi ngon.
+                    </p>
+                    <div class="intro-highlights">
+                        <div class="highlight-item">
+                            <span class="hl-number">100%</span>
+                            <span class="hl-label">Mắm cá Châu Đốc chính gốc</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hl-number">10+</span>
+                            <span class="hl-label">Loại rau đồng tươi sạch mỗi ngày</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="hl-number">150K</span>
+                            <span class="hl-label">Giá chuẩn bình dân cho mọi nhà</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột phải: Lướt nhẹ từ bên phải sang -->
+                <div class="intro-image-col reveal-right">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1541544741938-0af808871cc0?w=800&auto=format&fit=crop&q=80" alt="Nồi lẩu mắm thơm ngon nghi ngút khói" class="intro-feature-img">
+                        <div class="image-badge-floating">
+                            <span>🔥 Đậm Đà Chuẩn Vị</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             PHẦN 3: KHU VỰC THỰC ĐƠN (MENU - 2 ẢNH CÓ LIGHTBOX PHÓNG TO)
+             ------------------------------------------------------------- -->
+        <section id="menu" class="section-container menu-section">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Thực Đơn Độc Quyền</span>
+                <h2 class="section-title">Bảng Món Ăn & Giá Cả Rõ Ràng</h2>
+                <p class="section-subtitle">Chạm vào ảnh để phóng to toàn màn hình xem chi tiết giá món</p>
+                <div class="title-divider"></div>
+            </div>
+
+            <!-- Lưới hiển thị 2 ảnh thực đơn (Hiệu ứng so le stagger) -->
+            <div class="menu-grid">
+                <!-- Ảnh Thực đơn 1: Các món lẩu chính -->
+                <div class="menu-item-card reveal-scale stagger-1" data-lightbox="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&auto=format&fit=crop&q=80" title="Nhấn để phóng to thực đơn">
+                    <div class="menu-img-box">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop&q=80" alt="Thực đơn các món lẩu chính" class="menu-img">
+                        <div class="zoom-hint-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span>Chạm để phóng to</span>
+                        </div>
+                    </div>
+                    <div class="menu-card-info">
+                        <h3 class="menu-card-title">Thực Đơn Các Set Lẩu Mắm</h3>
+                        <p class="menu-card-desc">Set Lẩu Trăm Rưỡi (150K), Lẩu Thập Cẩm Đặc Biệt, Lẩu Cá Kèo...</p>
+                    </div>
+                </div>
+
+                <!-- Ảnh Thực đơn 2: Món ăn kèm & Nước uống -->
+                <div class="menu-item-card reveal-scale stagger-2" data-lightbox="https://images.unsplash.com/photo-1544025162-d76694265947?w=1600&auto=format&fit=crop&q=80" title="Nhấn để phóng to thực đơn">
+                    <div class="menu-img-box">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80" alt="Thực đơn đồ nhúng thêm và thức uống" class="menu-img">
+                        <div class="zoom-hint-overlay">
+                            <span class="zoom-icon">🔍</span>
+                            <span>Chạm để phóng to</span>
+                        </div>
+                    </div>
+                    <div class="menu-card-info">
+                        <h3 class="menu-card-title">Món Nhúng Thêm & Nước Uống</h3>
+                        <p class="menu-card-desc">Tôm sú tươi, mực lá, bò cuộn nấm, mẹt rau đồng và trà sâm hạt chia...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             PHẦN 4: DANH SÁCH CHI NHÁNH (BRANCH LIST - RESPONSIVE 3 KHUNG HÌNH)
+             - Mobile (< 768px): 1 Cột dọc
+             - Tablet (768 - 1024px): 2 Cột cân đối
+             - Laptop/PC (> 1024px): 3 Cột rộng rãi
+             ------------------------------------------------------------- -->
+        <section id="branches" class="section-container branch-section">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Hệ Thống Quán</span>
+                <h2 class="section-title">Chọn Chi Nhánh Gần Bạn Nhất</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <!-- Lưới danh sách cửa hàng (Hiệu ứng so le stagger) -->
+            <div class="branch-grid">
+                <!-- Chi nhánh 1: Quận 1 -->
+                <article class="branch-card reveal-element stagger-1">
+                    <a href="branch.html?slug=chi-nhanh-quan-1" class="branch-thumb-link">
+                        <div class="branch-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80" alt="Chi nhánh Quận 1" class="branch-thumb-img">
+                            <span class="branch-status-badge">Đang Mở Cửa</span>
+                        </div>
+                    </a>
+                    <div class="branch-details">
+                        <h3 class="branch-name">
+                            <a href="branch.html?slug=chi-nhanh-quan-1">Chi Nhánh Quận 1 - Nguyễn Du</a>
+                        </h3>
+                        <p class="branch-info-row">
+                            <span class="info-icon">⏰</span>
+                            <span>10:00 - 22:30 hàng ngày</span>
+                        </p>
+                        <p class="branch-info-row">
+                            <span class="info-icon">📍</span>
+                            <span>Số 123 Nguyễn Du, P. Bến Nghé, Quận 1, TP.HCM</span>
+                        </p>
+                        <div class="branch-actions">
+                            <a href="branch.html?slug=chi-nhanh-quan-1" class="btn-branch-detail">Xem Chi Tiết & Khuyến Mãi &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Chi nhánh 2: Tân Bình -->
+                <article class="branch-card reveal-element stagger-2">
+                    <a href="branch.html?slug=chi-nhanh-tan-binh" class="branch-thumb-link">
+                        <div class="branch-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop&q=80" alt="Chi nhánh Tân Bình" class="branch-thumb-img">
+                            <span class="branch-status-badge">Đang Mở Cửa</span>
+                        </div>
+                    </a>
+                    <div class="branch-details">
+                        <h3 class="branch-name">
+                            <a href="branch.html?slug=chi-nhanh-tan-binh">Chi Nhánh Tân Bình - Hoàng Văn Thụ</a>
+                        </h3>
+                        <p class="branch-info-row">
+                            <span class="info-icon">⏰</span>
+                            <span>09:30 - 22:00 hàng ngày</span>
+                        </p>
+                        <p class="branch-info-row">
+                            <span class="info-icon">📍</span>
+                            <span>Số 456 Hoàng Văn Thụ, Phường 4, Tân Bình, TP.HCM</span>
+                        </p>
+                        <div class="branch-actions">
+                            <a href="branch.html?slug=chi-nhanh-tan-binh" class="btn-branch-detail">Xem Chi Tiết & Khuyến Mãi &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Chi nhánh 3: Bình Thạnh -->
+                <article class="branch-card reveal-element stagger-3">
+                    <a href="branch.html?slug=chi-nhanh-binh-thanh" class="branch-thumb-link">
+                        <div class="branch-thumb-wrapper">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&auto=format&fit=crop&q=80" alt="Chi nhánh Bình Thạnh" class="branch-thumb-img">
+                            <span class="branch-status-badge">Đang Mở Cửa</span>
+                        </div>
+                    </a>
+                    <div class="branch-details">
+                        <h3 class="branch-name">
+                            <a href="branch.html?slug=chi-nhanh-binh-thanh">Chi Nhánh Bình Thạnh - Điện Biên Phủ</a>
+                        </h3>
+                        <p class="branch-info-row">
+                            <span class="info-icon">⏰</span>
+                            <span>10:00 - 22:00 hàng ngày</span>
+                        </p>
+                        <p class="branch-info-row">
+                            <span class="info-icon">📍</span>
+                            <span>Số 789 Điện Biên Phủ, Phường 25, Bình Thạnh, TP.HCM</span>
+                        </p>
+                        <div class="branch-actions">
+                            <a href="branch.html?slug=chi-nhanh-binh-thanh" class="btn-branch-detail">Xem Chi Tiết & Khuyến Mãi &rarr;</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- -------------------------------------------------------------
+             PHẦN 5: ĐÁNH GIÁ NỔI BẬT (TỐI ĐA 3 REVIEW TIÊU BIỂU THEO SRS)
+             ------------------------------------------------------------- -->
+        <section id="reviews" class="section-container reviews-section">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Thực Khách Nói Gì</span>
+                <h2 class="section-title">Trải Nghiệm Tại Lẩu Mắm Trăm Rưỡi</h2>
+                <p class="section-subtitle">Sự hài lòng của quý khách là niềm tự hào lớn nhất của chúng tôi</p>
+                <div class="title-divider"></div>
+            </div>
+
+            <!-- Lưới hiển thị 3 đánh giá nổi bật (Hiệu ứng so le stagger) -->
+            <div class="reviews-grid">
+                <!-- Đánh giá 1 -->
+                <div class="review-card reveal-scale stagger-1">
+                    <div class="review-stars" aria-label="5 trên 5 sao">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="review-text">
+                        "Nước lẩu mắm thơm nức mũi, vị ngọt thanh từ cá linh ủ kỹ chứ không hề bị gắt cổ. 
+                        Rau đồng tươi rói ăn kèm bông điên điển cực kỳ chuẩn vị miền Tây sông nước!"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">ML</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Chị Mai Lan</h4>
+                            <span class="author-tag">Food Reviewer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đánh giá 2 -->
+                <div class="review-card reveal-scale stagger-2">
+                    <div class="review-stars" aria-label="5 trên 5 sao">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="review-text">
+                        "Giá cả rất bình dân đúng tinh thần trăm rưỡi mà đĩa thịt ba chỉ quay giòn bì, tôm sú, 
+                        mực tươi đầy ắp. Không gian quán máy lạnh mát rượi, nhân viên nhanh nhẹn."
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">HN</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Anh Hoàng Nam</h4>
+                            <span class="author-tag">Thực khách thân thiết</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Đánh giá 3 -->
+                <div class="review-card reveal-scale stagger-3">
+                    <div class="review-stars" aria-label="5 trên 5 sao">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+                    <p class="review-text">
+                        "Cả gia đình tôi ghé ăn cuối tuần ai cũng tấm tắc khen. Nồi lẩu nóng hổi, bún tươi 
+                        ăn thả ga. Đã lưu quán vào danh sách địa điểm sum họp quen thuộc của gia đình!"
+                    </p>
+                    <div class="review-author">
+                        <div class="author-avatar">TT</div>
+                        <div class="author-info">
+                            <h4 class="author-name">Cô Thu Trang</h4>
+                            <span class="author-tag">Khách hàng Quận 3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Khu vực 4: Chân Trang (Footer - Hiển thị xuyên suốt) -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <!-- Cột 1: Thông tin thương hiệu -->
+            <div class="footer-col brand-col">
+                <h3 class="footer-brand-title">
+                    <span class="logo-text-accent">LẨU MẮM</span> TRĂM RƯỠI
+                </h3>
+                <p class="footer-desc">
+                    Hệ thống nhà hàng ẩm thực Nam Bộ chuẩn vị truyền thống. Mang nồi lẩu mắm đậm đà, 
+                    tươi ngon với mức giá bình dân đến mọi gia đình Việt.
+                </p>
+                <p class="footer-copyright">
+                    &copy; 2026 Lẩu Mắm Trăm Rưỡi. Bản quyền được bảo lưu.
+                </p>
+            </div>
+
+            <!-- Cột 2: Giờ mở cửa & Trụ sở chính -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Thông Tin Chung</h4>
+                <ul class="footer-list">
+                    <li>📍 <strong>Trụ sở chính:</strong> 123 Nguyễn Du, Quận 1, TP. Hồ Chí Minh</li>
+                    <li>⏰ <strong>Giờ phục vụ:</strong> 09:30 - 22:30 (Cả ngày Lễ & Tết)</li>
+                    <li>📞 <strong>Hotline đặt bàn:</strong> <a href="tel:19001234">1900 1234</a></li>
+                    <li>✉️ <strong>Email hỗ trợ:</strong> lienhe@laumam150.vn</li>
+                </ul>
+            </div>
+
+            <!-- Cột 3: Liên kết nhanh -->
+            <div class="footer-col">
+                <h4 class="footer-heading">Liên Kết Nhanh</h4>
+                <ul class="footer-links">
+                    <li><a href="#intro">Câu chuyện thương hiệu</a></li>
+                    <li><a href="#menu">Thực đơn đặc sản</a></li>
+                    <li><a href="#branches">Hệ thống chi nhánh</a></li>
+                    <li><a href="#reviews">Đánh giá khách hàng</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Khung xem ảnh toàn màn hình (Lightbox Modal) -->
+    <div id="menu-lightbox" class="lightbox-modal" aria-hidden="true" role="dialog">
+        <!-- Nút đóng lightbox góc trên bên phải -->
+        <button type="button" class="lightbox-close-btn" id="lightbox-close-btn" aria-label="Đóng ảnh">&times;</button>
+        <!-- Ảnh phóng to hiển thị ở giữa -->
+        <div class="lightbox-content">
+            <img src="" alt="Ảnh thực đơn phóng to" id="lightbox-img" class="lightbox-img">
+        </div>
+    </div>
+
+    <!-- Khu vực 2: 3 Nút Nổi Mạng Xã Hội (Floating Social Icons - Cố định góc phải) -->
+    <div class="floating-social-group" aria-label="Kênh mạng xã hội">
+        <!-- Nút TikTok -->
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn tiktok" title="Xem TikTok Lẩu Mắm Trăm Rưỡi">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.67 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.33V9.17a8.16 8.16 0 0 0 4.91 1.63V7.36a4.85 4.85 0 0 1-1-.67z"/>
+            </svg>
+        </a>
+
+        <!-- Nút Zalo -->
+        <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" class="social-icon-btn zalo" title="Chat Zalo Đặt Bàn">
+            <span class="zalo-text">Zalo</span>
+        </a>
+
+        <!-- Nút Facebook Fanpage -->
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="Ghé thăm Fanpage Facebook">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Khu vực 3: Thanh Công Cụ Ghim Đáy Màn Hình (Sticky Bottom Bar) -->
+    <nav class="sticky-bottom-bar" aria-label="Thao tác nhanh của khách hàng">
+        <button type="button" class="bottom-action-btn btn-booking" id="btn-open-booking">
+            <span class="btn-icon">🍲</span>
+            <span class="btn-label">Đặt Bàn</span>
+        </button>
+
+        <button type="button" class="bottom-action-btn btn-takeaway" id="btn-open-takeaway">
+            <span class="btn-icon">🛵</span>
+            <span class="btn-label">Mua Mang Về</span>
+        </button>
+
+        <button type="button" class="bottom-action-btn btn-feedback" id="btn-open-feedback">
+            <span class="btn-icon">⭐</span>
+            <span class="btn-label">Khách Đánh Giá</span>
+        </button>
+    </nav>
+
+    <!-- =============================================================
+         KHU VỰC 5: BỘ 3 MODAL POP-UP & POP-UP THÔNG BÁO CẢM ƠN (SRS 2.4)
+         ============================================================= -->
+
+    <!-- MODAL 1: ĐẶT BÀN TRƯỚC -->
+    <div id="modal-booking" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">🍲 Đặt Bàn Giữ Chỗ</h3>
+                <button type="button" class="modal-close-btn" data-close-modal aria-label="Đóng">&times;</button>
+            </div>
+            <form id="form-booking" class="modal-form">
+                <div class="form-group">
+                    <label for="booking-branch" class="form-label">Chọn Chi Nhánh Phục Vụ *</label>
+                    <select id="booking-branch" class="form-select" required>
+                        <option value="1">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Quận 1</option>
+                        <option value="2">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Tân Bình</option>
+                        <option value="3">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Bình Thạnh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="booking-name" class="form-label">Họ và Tên Quý Khách *</label>
+                    <input type="text" id="booking-name" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+                </div>
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="booking-phone" class="form-label">Số Điện Thoại *</label>
+                        <input type="tel" id="booking-phone" class="form-input" placeholder="0901234567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-guests" class="form-label">Số Lượng Khách *</label>
+                        <input type="number" id="booking-guests" class="form-input" min="1" max="100" value="2" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-modal-submit btn-booking-submit">Đồng Ý Đặt Bàn</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 2: MUA MANG VỀ -->
+    <div id="modal-takeaway" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">🛵 Đặt Mua Mang Về</h3>
+                <button type="button" class="modal-close-btn" data-close-modal aria-label="Đóng">&times;</button>
+            </div>
+            <form id="form-takeaway" class="modal-form">
+                <div class="form-group">
+                    <label for="takeaway-branch" class="form-label">Chi Nhánh Chuẩn Bị Món *</label>
+                    <select id="takeaway-branch" class="form-select" required>
+                        <option value="1">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Quận 1</option>
+                        <option value="2">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Tân Bình</option>
+                        <option value="3">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Bình Thạnh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="takeaway-name" class="form-label">Họ và Tên Người Nhận *</label>
+                    <input type="text" id="takeaway-name" class="form-input" placeholder="Ví dụ: Trần Thị Bích" required>
+                </div>
+                <div class="form-group">
+                    <label for="takeaway-phone" class="form-label">Số Điện Thoại Nhận Hàng *</label>
+                    <input type="tel" id="takeaway-phone" class="form-input" placeholder="0987654321" required>
+                </div>
+                <div class="form-group">
+                    <label for="takeaway-address" class="form-label">Địa Chỉ Giao Hàng Chi Tiết *</label>
+                    <textarea id="takeaway-address" class="form-textarea" rows="2" placeholder="Số nhà, tên đường, phường, quận..." required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-modal-submit btn-takeaway-submit">Đồng Ý Đặt Món</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL 3: GÓP Ý ĐÁNH GIÁ (BÍ MẬT GỬI VỀ ADMIN) -->
+    <div id="modal-feedback" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">⭐ Khách Đánh Giá & Góp Ý</h3>
+                <button type="button" class="modal-close-btn" data-close-modal aria-label="Đóng">&times;</button>
+            </div>
+            <form id="form-feedback" class="modal-form">
+                <div class="form-group">
+                    <label for="feedback-branch" class="form-label">Chi Nhánh Cần Góp Ý *</label>
+                    <select id="feedback-branch" class="form-select" required>
+                        <option value="1">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Quận 1</option>
+                        <option value="2">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Tân Bình</option>
+                        <option value="3">Lẩu Mắm Trăm Rưỡi - Chi Nhánh Bình Thạnh</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="feedback-content" class="form-label">Ý Kiến Phản Ánh Của Quý Khách *</label>
+                    <textarea id="feedback-content" class="form-textarea" rows="4" placeholder="Chia sẻ cảm nhận về món ăn, thái độ phục vụ hoặc đề xuất cải thiện..." required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-modal-submit btn-feedback-submit">Gửi Ý Kiến</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- POP-UP THÔNG BÁO CẢM ƠN (CHUẨN SRS) -->
+    <div id="modal-thankyou" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog modal-dialog-sm text-center">
+            <div class="thankyou-icon-circle">✓</div>
+            <h3 class="thankyou-title" id="thankyou-title">Gửi Thành Công!</h3>
+            <p class="thankyou-msg" id="thankyou-msg">
+                <!-- Nội dung thông báo động sẽ được gán bằng JS theo SRS -->
+            </p>
+            <button type="button" class="btn-thankyou-close" id="btn-close-thankyou">Đã Hiểu</button>
+        </div>
+    </div>
+
+    <!-- Nạp file JavaScript xử lý tương tác và hiệu ứng cuộn trang -->
+    <script src="../animations/scroll-reveal.js"></script>
+    <script src="../animations/lightbox.js"></script>
+    <script src="../components/modals.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>
+

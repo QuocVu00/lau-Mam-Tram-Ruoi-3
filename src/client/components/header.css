@@ -1,0 +1,112 @@
+/* ====================================================================
+   FILE ĐỊNH KIỂU HEADER (ĐẦU TRANG - CỐ ĐỊNH)
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Xây dựng Header chuẩn Responsive 3 khung hình
+   ==================================================================== */
+
+/* Header cố định trên cùng khi cuộn trang */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Đảm bảo luôn nằm nổi trên các nội dung khác khi cuộn */
+    background: rgba(255, 255, 255, 0.95); /* Màu nền trắng trong mờ nhẹ */
+    backdrop-filter: blur(8px); /* Hiệu ứng kính mờ sang trọng phía sau */
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid rgba(139, 58, 28, 0.1);
+}
+
+/* Khung chứa giới hạn chiều rộng tối đa và căn giữa màn hình */
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Kiểu chữ Logo thương hiệu */
+.brand-logo {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+}
+
+/* Điểm nhấn màu sắc cho chữ 'LẨU MẮM' */
+.logo-text-accent {
+    color: var(--color-accent);
+}
+
+/* Menu điều hướng cuộn trang */
+.nav-menu {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    position: relative;
+    padding: 4px 0;
+}
+
+/* Hiệu ứng gạch chân mượt mà khi rê chuột vào link */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--color-accent);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Nút bấm Hotline liên hệ */
+.header-hotline {
+    font-size: 0.9rem;
+    color: var(--color-btn-cta);
+    background-color: #FEE2E2;
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    border: 1px solid #FCA5A5;
+    transition: all var(--transition-fast);
+}
+
+.header-hotline:hover {
+    background-color: var(--color-btn-cta);
+    color: var(--text-light);
+}
+
+/* ====================================================================
+   RESPONSIVE THEO ĐẶC TẢ SRS (MOBILE < 768px, TABLET 768-1024px)
+   ==================================================================== */
+
+/* Khi ở màn hình Điện thoại (< 768px): 
+   Ẩn menu chữ dài để tránh chật chội, người dùng điện thoại sẽ thao tác qua Sticky Bottom Bar ở đáy */
+@media (max-width: 767px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .brand-logo {
+        font-size: 1.15rem;
+    }
+
+    .header-hotline {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+

@@ -1,0 +1,171 @@
+/* ====================================================================
+   FILE ĐỊNH KIỂU TRANG CHI TIẾT CHI NHÁNH (BRANCH DETAIL STYLES)
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Giao diện chi tiết, Gallery ảnh và Khóa cứng chi nhánh
+   ==================================================================== */
+
+/* --------------------------------------------------------------------
+   1. BANNER TIÊU ĐỀ ĐẦU TRANG CHI NHÁNH
+   -------------------------------------------------------------------- */
+.branch-hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 280px;
+    background: linear-gradient(135deg, rgba(139, 58, 28, 0.92), rgba(45, 36, 30, 0.95)), 
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-light);
+}
+
+.branch-hero-content {
+    max-width: 800px;
+}
+
+.back-link {
+    display: inline-block;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    transition: transform var(--transition-fast);
+}
+
+.back-link:hover {
+    transform: translateX(-4px);
+    color: var(--text-light);
+}
+
+.branch-hero-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+
+/* Thẻ thông tin địa chỉ & giờ mở cửa */
+.branch-meta-tags {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.meta-tag {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 0.88rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* --------------------------------------------------------------------
+   2. BÀI VIẾT GIỚI THIỆU & LƯỚI BỘ ẢNH KHÔNG GIAN (GALLERY)
+   -------------------------------------------------------------------- */
+.branch-intro-box {
+    background: var(--bg-white);
+    padding: 28px;
+    border-radius: var(--radius-md);
+    border-left: 5px solid var(--color-primary);
+    box-shadow: var(--shadow-sm);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 40px;
+}
+
+/* Lưới hiển thị các góc ảnh thực tế của quán */
+.branch-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 Cột trên điện thoại */
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    height: 240px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.05); /* Hiệu ứng Hover Zoom mượt mà */
+}
+
+/* --------------------------------------------------------------------
+   3. BANNER KHUYẾN MÃI RIÊNG CỦA CHI NHÁNH
+   -------------------------------------------------------------------- */
+.promo-section {
+    background-color: #FAF4EB;
+    border-radius: var(--radius-md);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.promo-banner-wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.promo-banner-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --------------------------------------------------------------------
+   4. Ô HIỂN THỊ CHI NHÁNH ĐƯỢC GÁN CỨNG TRONG MODAL (SRS 2.3.4)
+   -------------------------------------------------------------------- */
+.locked-branch-box {
+    background-color: #FFFBEB; /* Màu vàng nhạt dịu mắt */
+    border: 1.5px solid #FDE68A;
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 18px;
+}
+
+.locked-branch-name {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-top: 4px;
+}
+
+/* ====================================================================
+   RESPONSIVE CHO TABLET VÀ PC
+   ==================================================================== */
+@media (min-width: 768px) {
+    .branch-hero-banner {
+        min-height: 340px;
+    }
+
+    .branch-hero-title {
+        font-size: 2.8rem;
+    }
+
+    .branch-gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột trên Tablet */
+    }
+}
+
+@media (min-width: 1025px) {
+    .branch-gallery-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cột trên PC */
+    }
+}
+

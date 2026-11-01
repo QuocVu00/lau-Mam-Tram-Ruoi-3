@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Chi Tiết Chi Nhánh - Lẩu Mắm Trăm Rưỡi</title>
+
+    <!-- Google Fonts tiếng Việt -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tái sử dụng các thành phần CSS nền tảng đã làm ở các bước trước -->
+    <link rel="stylesheet" href="../components/global.css">
+    <link rel="stylesheet" href="../components/header.css">
+    <link rel="stylesheet" href="../components/floating-bar.css">
+    <link rel="stylesheet" href="../components/reviews-footer.css">
+    <link rel="stylesheet" href="../components/modals.css">
+    <link rel="stylesheet" href="../animations/scroll-reveal.css">
+    <!-- CSS riêng cho Trang Chi Tiết Chi Nhánh -->
+    <link rel="stylesheet" href="../components/branch-detail.css">
+</head>
+<body>
+    <!-- Header dùng chung -->
+    <header id="site-header" class="site-header">
+        <div class="header-container">
+            <a href="index.html" class="brand-logo">
+                <span class="logo-text-accent">LẨU MẮM</span> TRĂM RƯỠI
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">&larr; Về Trang Chủ</a>
+                <a href="#intro" class="nav-link">Không Gian</a>
+                <a href="#promo" class="nav-link">Khuyến Mãi</a>
+                <a href="#reviews" class="nav-link">Đánh Giá</a>
+            </nav>
+            <a href="tel:19001234" class="header-hotline">
+                📞 Hotline: <strong>1900 1234</strong>
+            </a>
+        </div>
+    </header>
+
+    <!-- Nội dung chính của Trang Chi Tiết Chi Nhánh -->
+    <main id="main-content">
+        <!-- 1. Banner Tiêu Đề Chi Nhánh -->
+        <section class="branch-hero-banner" id="branch-hero">
+            <div class="branch-hero-content">
+                <a href="index.html#branches" class="back-link">&larr; Xem tất cả chi nhánh</a>
+                <h1 class="branch-hero-title" id="branch-name">Chi Nhánh Quận 1 - Nguyễn Du</h1>
+                <div class="branch-meta-tags">
+                    <span class="meta-tag" id="branch-hours">⏰ 10:00 - 22:30</span>
+                    <span class="meta-tag" id="branch-address">📍 123 Nguyễn Du, Quận 1, TP.HCM</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Giới Thiệu & Bộ Ảnh Không Gian (Gallery) -->
+        <section id="intro" class="section-container">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Không Gian Ẩm Thực</span>
+                <h2 class="section-title">Khám Phá Chi Nhánh</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <!-- Bài viết giới thiệu riêng của chi nhánh -->
+            <div class="branch-intro-box reveal-element">
+                <p id="branch-intro-text">
+                    Đang tải thông tin chi nhánh...
+                </p>
+            </div>
+
+            <!-- Lưới bộ ảnh không gian chi nhánh (Gallery) -->
+            <div class="branch-gallery-grid" id="branch-gallery">
+                <!-- Các ảnh không gian sẽ được JavaScript nạp vào đây -->
+            </div>
+        </section>
+
+        <!-- 3. Chương Trình Khuyến Mãi Riêng (SRS 2.3.2) -->
+        <section id="promo" class="section-container promo-section">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Ưu Đãi Đặc Biệt</span>
+                <h2 class="section-title">Khuyến Mãi Đang Áp Dụng</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <div class="promo-banner-wrapper reveal-element">
+                <img src="" alt="Banner khuyến mãi riêng của chi nhánh" id="branch-promo-banner" class="promo-banner-img">
+            </div>
+        </section>
+
+        <!-- 4. Đánh Giá Riêng Của Chi Nhánh (Tối đa 3 bài theo SRS 2.3.3) -->
+        <section id="reviews" class="section-container">
+            <div class="section-header reveal-element">
+                <span class="section-badge">Đánh Giá Thực Khách</span>
+                <h2 class="section-title">Khách Hàng Nói Về Chi Nhánh Này</h2>
+                <div class="title-divider"></div>
+            </div>
+
+            <div class="reviews-grid" id="branch-reviews-grid">
+                <!-- 3 đánh giá ảo của chi nhánh sẽ được nạp vào đây -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer dùng chung -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <h3 class="footer-brand-title"><span class="logo-text-accent">LẨU MẮM</span> TRĂM RƯỠI</h3>
+                <p class="footer-desc">Hương vị Nam Bộ đậm đà truyền thống với mức giá bình dân 150K cho mọi nhà.</p>
+                <p class="footer-copyright">&copy; 2026 Lẩu Mắm Trăm Rưỡi.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Thông Tin Chung</h4>
+                <ul class="footer-list">
+                    <li>📍 123 Nguyễn Du, Quận 1, TP. Hồ Chí Minh</li>
+                    <li>⏰ 09:30 - 22:30 (Hàng ngày)</li>
+                    <li>📞 Hotline: 1900 1234</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-heading">Điều Hướng</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="index.html#menu">Thực Đơn</a></li>
+                    <li><a href="index.html#branches">Danh Sách Chi Nhánh</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 3 Nút Mạng Xã Hội Nổi -->
+    <div class="floating-social-group">
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn tiktok" title="TikTok">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 3 15.67 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.33V9.17a8.16 8.16 0 0 0 4.91 1.63V7.36a4.85 4.85 0 0 1-1-.67z"/></svg>
+        </a>
+        <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" class="social-icon-btn zalo" title="Zalo"><span class="zalo-text">Zalo</span></a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn facebook" title="Facebook"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95C18.05 21.45 22 17.19 22 12z"/></svg></a>
+    </div>
+
+    <!-- Thanh Công Cụ Ghim Đáy (SRS 2.3.4: Đặt Bàn & Mua Mang Về) -->
+    <nav class="sticky-bottom-bar">
+        <button type="button" class="bottom-action-btn btn-booking" id="btn-open-booking">
+            <span class="btn-icon">🍲</span>
+            <span class="btn-label">Đặt Bàn Tại Đây</span>
+        </button>
+        <button type="button" class="bottom-action-btn btn-takeaway" id="btn-open-takeaway">
+            <span class="btn-icon">🛵</span>
+            <span class="btn-label">Mang Về Tại Đây</span>
+        </button>
+    </nav>
+
+    <!-- BỘ MODAL: TỰ ĐỘNG GÁN CỨNG CHI NHÁNH ĐANG XEM -->
+    <!-- Modal Đặt Bàn -->
+    <div id="modal-booking" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">🍲 Đặt Bàn Tại Chi Nhánh Này</h3>
+                <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+            </div>
+            <form id="form-booking" class="modal-form">
+                <!-- Khối hiển thị chi nhánh được gán cứng (không cho chọn nhầm sang nơi khác) -->
+                <div class="form-group locked-branch-box">
+                    <label class="form-label">Chi Nhánh Được Gán Tự Động:</label>
+                    <div class="locked-branch-name" id="booking-branch-name">Đang tải...</div>
+                    <input type="hidden" id="booking-branch-id" value="">
+                </div>
+                <div class="form-group">
+                    <label for="booking-name" class="form-label">Họ và Tên *</label>
+                    <input type="text" id="booking-name" class="form-input" placeholder="Ví dụ: Nguyễn Văn An" required>
+                </div>
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="booking-phone" class="form-label">Số Điện Thoại *</label>
+                        <input type="tel" id="booking-phone" class="form-input" placeholder="0901234567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-guests" class="form-label">Số Lượng Khách *</label>
+                        <input type="number" id="booking-guests" class="form-input" min="1" max="100" value="2" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-modal-submit btn-booking-submit">Xác Nhận Đặt Bàn</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Mua Mang Về -->
+    <div id="modal-takeaway" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">🛵 Đặt Mua Mang Về Tại Chi Nhánh Này</h3>
+                <button type="button" class="modal-close-btn" data-close-modal>&times;</button>
+            </div>
+            <form id="form-takeaway" class="modal-form">
+                <div class="form-group locked-branch-box">
+                    <label class="form-label">Chi Nhánh Chuẩn Bị Món:</label>
+                    <div class="locked-branch-name" id="takeaway-branch-name">Đang tải...</div>
+                    <input type="hidden" id="takeaway-branch-id" value="">
+                </div>
+                <div class="form-group">
+                    <label for="takeaway-name" class="form-label">Họ và Tên Người Nhận *</label>
+                    <input type="text" id="takeaway-name" class="form-input" placeholder="Ví dụ: Trần Thị Bích" required>
+                </div>
+                <div class="form-group">
+                    <label for="takeaway-phone" class="form-label">Số Điện Thoại *</label>
+                    <input type="tel" id="takeaway-phone" class="form-input" placeholder="0987654321" required>
+                </div>
+                <div class="form-group">
+                    <label for="takeaway-address" class="form-label">Địa Chỉ Giao Hàng *</label>
+                    <textarea id="takeaway-address" class="form-textarea" rows="2" placeholder="Số nhà, tên đường..." required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn-modal-submit btn-takeaway-submit">Xác Nhận Đặt Món</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Thông Báo Cảm Ơn -->
+    <div id="modal-thankyou" class="app-modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="app-modal-dialog modal-dialog-sm text-center">
+            <div class="thankyou-icon-circle">✓</div>
+            <h3 class="thankyou-title">Gửi Thành Công!</h3>
+            <p class="thankyou-msg" id="thankyou-msg"></p>
+            <button type="button" class="btn-thankyou-close" id="btn-close-thankyou">Đã Hiểu</button>
+        </div>
+    </div>
+
+    <!-- JavaScript xử lý -->
+    <script src="../animations/scroll-reveal.js"></script>
+    <script src="branch.js"></script>
+</body>
+</html>
+

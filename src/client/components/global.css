@@ -1,0 +1,79 @@
+/* ====================================================================
+   FILE ĐỊNH KIỂU TOÀN CỤC (GLOBAL STYLES & CSS VARIABLES)
+   Dự án: Nhà Hàng Lẩu Mắm Trăm Rưỡi
+   Nhiệm vụ Thành viên A: Xây dựng nền tảng giao diện, bảng màu và Reset CSS
+   ==================================================================== */
+
+/* 1. KHỞI TẠO BẢNG MÀU CHỦ ĐẠO THƯƠNG HIỆU (THEME VARIABLES) */
+:root {
+    /* Màu nâu mắm đậm đà đặc trưng vùng sông nước Nam Bộ */
+    --color-primary: #8B3A1C;
+    /* Màu vàng đất ấm áp của nước dùng và bông điên điển */
+    --color-accent: #E67E22;
+    /* Màu đỏ gạch dùng cho các nút bấm nổi bật (CTA buttons) */
+    --color-btn-cta: #D32F2F;
+    /* Màu xanh lá tươi mát của các loại rau đồng ăn kèm */
+    --color-fresh-green: #2E7D32;
+
+    /* Màu nền kem sáng ấm cúng, sang trọng, không chói mắt */
+    --bg-page: #FAF7F2;
+    --bg-white: #FFFFFF;
+    --bg-card: #FFFFFF;
+
+    /* Màu chữ chính và chữ mờ phụ */
+    --text-main: #2D241E;
+    --text-muted: #6B5E55;
+    --text-light: #FFFFFF;
+
+    /* Đổ bóng nhẹ tạo độ sâu (box-shadow) */
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    /* Độ bo tròn góc thẻ */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-full: 999px;
+
+    /* Tốc độ hiệu ứng chuyển động mượt */
+    --transition-fast: 0.25s ease;
+    --transition-smooth: 0.4s ease;
+}
+
+/* 2. RESET CSS CƠ BẢN ĐỂ GIAO DIỆN HIỂN THỊ ĐỒNG NHẤT MỌI TRÌNH DUYỆT */
+* {
+    margin: 0;
+    padding: 0;
+    /* Giúp kích thước padding và border không làm nở to thẻ vượt quá width/height */
+    box-sizing: border-box;
+}
+
+/* Kích hoạt chế độ cuộn trang mượt mà khi bấm vào link menu #intro, #menu... */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+    /* Chừa khoảng trống dưới đáy để không bị thanh Sticky Bottom Bar che mất nội dung */
+    padding-bottom: 75px;
+}
+
+/* Định dạng cơ bản cho thẻ liên kết */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color var(--transition-fast);
+}
+
+/* Định dạng hình ảnh tự động co giãn không tràn màn hình */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
